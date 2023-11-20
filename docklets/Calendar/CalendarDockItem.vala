@@ -128,27 +128,27 @@ namespace Docky
 
 			//  month
 			if (prefs.ShowMonth) {
-				layout.get_font_description ().set_absolute_size ((int) (12 * surface.Height / 100 * Pango.SCALE));
-				layout.set_text (now.format ("%B"), -1);
+				layout.get_font_description ().set_absolute_size ((int) (16 * surface.Height / 100 * Pango.SCALE));
+				layout.set_text (now.format ("%b").up (), -1);
 				layout.get_pixel_extents (out ink_rect, out logical_rect);
 
-				cr.move_to (0, 10 * surface.Height / 100);
+				cr.move_to (0, 13 * surface.Height / 100);
 				
 				Pango.cairo_layout_path (cr, layout);
-				cr.set_source_rgba (19/255, 100/255, 0, 0.4);
+				cr.set_source_rgba (255, 255, 255, 1);
 				cr.fill ();
 			}
 
 			//  day
 			if (prefs.ShowDay) {
-				layout.get_font_description ().set_absolute_size ((int) (9 * surface.Height / 100 * Pango.SCALE));
-				layout.set_text (now.format ("%A"), -1);
+				layout.get_font_description ().set_absolute_size ((int) (14 * surface.Height / 100 * Pango.SCALE));
+				layout.set_text (now.format ("%a"), -1);
 				layout.get_pixel_extents (out ink_rect, out logical_rect);
 
-				cr.move_to (0, 31.5 * surface.Height / 100);
+				cr.move_to (0, 72 * surface.Height / 100);
 				
 				Pango.cairo_layout_path (cr, layout);
-				cr.set_source_rgba (94/255, 85/255, 60/255, 0.25);
+				cr.set_source_rgba (255, 0, 0, 1);
 				cr.fill ();
 			}
 
@@ -160,7 +160,7 @@ namespace Docky
 			cr.move_to (0, 33 * surface.Height / 100);
 			
 			Pango.cairo_layout_path (cr, layout);
-			cr.set_source_rgba (94/255, 85/255, 60/255, 0.25);
+			cr.set_source_rgba (0, 0, 0, 1);
 			cr.fill ();
 		}
 
